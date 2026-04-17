@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cuns Kitchen</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter,sans-serif;
+}
+
+body{
+  overflow-x:hidden;
+  color:#111;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0,200,83,0.28), transparent 45%),
+    radial-gradient(circle at 80% 25%, rgba(46,125,50,0.25), transparent 50%),
+    radial-gradient(circle at 50% 85%, rgba(0,150,60,0.20), transparent 55%),
+    #f2f6f2;
+}
+
+/* GLOW */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  filter:blur(120px);
+  z-index:-1;
+  opacity:0.55;
+}
+
+body::before{background:#00c853;top:-140px;left:-140px;}
+body::after{background:#1b5e20;bottom:-160px;right:-160px;}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(255,255,255,.65);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #eaeaea;
+  z-index:1000;
+}
+
+nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  padding:15px 20px;
+  align-items:center;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo img{
+  width:34px;
+  height:34px;
+  object-fit:contain;
+}
+
+.logo span{
+  font-weight:600;
+  color:#1b5e20;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+}
+
+.hero-video{
+  position:absolute;
+  top:50%;
+  left:50%;
+  min-width:100%;
+  min-height:100%;
+  transform:translate(-50%,-50%);
+  object-fit:cover;
+  z-index:0;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.65));
+  z-index:1;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  padding:0 20px;
+}
+
+.hero h1{
+  font-size:64px;
+}
+
+.hero p{
+  margin-top:10px;
+  opacity:.9;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 24px;
+  background:#00c853;
+  border-radius:30px;
+  color:#fff;
+  text-decoration:none;
+}
+
+/* CAROUSEL */
+.carousel-section{
+  max-width:1100px;
+  margin:-60px auto 0;
+  padding:0 20px;
+  position:relative;
+  z-index:3;
+}
+
+.carousel-title{
+  font-size:22px;
+  font-weight:600;
+  color:#1b5e20;
+  margin-bottom:15px;
+}
+
+.carousel{
+  display:flex;
+  overflow-x:auto;
+  gap:15px;
+  scroll-snap-type:x mandatory;
+  padding-bottom:10px;
+}
+
+.item{
+  min-width:280px;
+  scroll-snap-align:center;
+  background:rgba(255,255,255,.85);
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid #eaeaea;
+}
+
+.item img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.item-name{
+  padding:10px;
+}
+
+/* SECTIONS */
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+h2{
+  font-size:30px;
+  color:#1b5e20;
+  margin-bottom:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
+
+.card{
+  background:rgba(255,255,255,.85);
+  border:1px solid #eaeaea;
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.card img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:10px;
+}
+
+.price{
+  color:#00c853;
+  font-weight:600;
+  margin-top:5px;
+}
+
+/* INFO */
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:15px;
+}
+
+.info-box{
+  background:rgba(255,255,255,.85);
+  border:1px solid #eaeaea;
+  border-radius:14px;
+  padding:18px;
+}
+
+iframe{
+  width:100%;
+  height:320px;
+  border:0;
+  border-radius:14px;
+  margin-top:20px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:13px;
+  color:#666;
+}
+
+footer a{
+  margin:0 10px;
+  color:#00c853;
+  text-decoration:none;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 768px){
+
+  .hero h1{
+    font-size:40px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  nav{
+    flex-direction:row;
+    padding:12px 15px;
+  }
+
+  nav a{
+    font-size:12px;
+    margin-left:10px;
+  }
+
+  .carousel{
+    gap:10px;
+  }
+
+  .item{
+    min-width:240px;
+  }
+
+  section{
+    padding:60px 15px;
+  }
+
+  h2{
+    font-size:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <img src="images/logo.png">
+      <span>CUNS KITCHEN</span>
+    </div>
+
+    <div>
+      <a href="#wok">Wok</a>
+      <a href="#bubble">Bubble Tea</a>
+      <a href="#location">Info</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="videos/hero.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>Cuns Kitchen</h1>
+    <p>Wok • Bubble Tea • Street Food</p>
+    <a class="btn" href="menu.pdf" target="_blank">Explore Menu</a>
+  </div>
+</div>
+
+<!-- CAROUSEL -->
+<div class="carousel-section">
+  <div class="carousel-title">Chef’s Empfehlung / Signature</div>
+
+  <div class="carousel">
+
+    <div class="item">
+      <img src="images/img1.jpg">
+      <div class="item-name">Signature Beef Wok</div>
+    </div>
+
+    <div class="item">
+      <img src="images/img2.jpg">
+      <div class="item-name">Spicy Chicken</div>
+    </div>
+
+    <div class="item">
+      <img src="images/img3.jpg">
+      <div class="item-name">Teriyaki Bowl</div>
+    </div>
+
+    <div class="item">
+      <img src="images/img4.jpg">
+      <div class="item-name">Crispy Chicken</div>
+    </div>
+
+    <div class="item">
+      <img src="images/img5.jpg">
+      <div class="item-name">Brown Sugar Tea</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WOK -->
+<section id="wok">
+  <h2>Wok</h2>
+  <div class="grid">
+
+    <div class="card"><img src="images/w1.jpg"><div class="card-content">Beef Wok<div class="price">€8.90</div></div></div>
+    <div class="card"><img src="images/w2.jpg"><div class="card-content">Chicken Wok<div class="price">€7.90</div></div></div>
+    <div class="card"><img src="images/w3.jpg"><div class="card-content">Veggie Wok<div class="price">€6.90</div></div></div>
+
+  </div>
+</section>
+
+<!-- BUBBLE TEA -->
+<section id="bubble">
+  <h2>Bubble Tea</h2>
+  <div class="grid">
+
+    <div class="card"><img src="images/b1.jpg"><div class="card-content">Classic Milk Tea<div class="price">€4.50</div></div></div>
+    <div class="card"><img src="images/b2.jpg"><div class="card-content">Brown Sugar<div class="price">€4.90</div></div></div>
+    <div class="card"><img src="images/b3.jpg"><div class="card-content">Taro Milk Tea<div class="price">€4.80</div></div></div>
+
+  </div>
+</section>
+
+<!-- INFO -->
+<section id="location">
+  <h2>Info</h2>
+
+  <div class="info-grid">
+
+    <div class="info-box">
+      <b>📍 Location</b><br>
+      Markt 41<br>06333 Hettstedt<br>Germany
+    </div>
+
+    <div class="info-box">
+      <b>⏰ Opening Hours</b><br>
+      Mon–Fri: 11:00–21:00<br>
+      Sat: 12:00–22:00<br>
+      Sun: Closed
+    </div>
+
+    <div class="info-box">
+      <b>📞 Contact</b><br>
+      +49 XXX XXXXX<br>
+      hello@cuns-kitchen.de
+    </div>
+
+    <div class="info-box">
+      <b>🚚 Delivery Time</b><br>
+      25–45 min average
+    </div>
+
+  </div>
+
+  <iframe src="https://www.google.com/maps?q=Markt%2041%20Hettstedt%20Germany&output=embed"></iframe>
+</section>
+
+<footer>
+  <a href="impressum.html">Impressum</a>
+  <a href="datenschutz.html">Datenschutz</a>
+  <p>© 2026 Cuns Kitchen</p>
+</footer>
+
+</body>
+</html>
