@@ -15,9 +15,14 @@
   font-family:Inter,sans-serif;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   overflow-x:hidden;
   color:#111;
+
   background:
     radial-gradient(circle at 15% 20%, rgba(0,200,83,0.28), transparent 45%),
     radial-gradient(circle at 80% 25%, rgba(46,125,50,0.25), transparent 50%),
@@ -25,7 +30,7 @@ body{
     #f2f6f2;
 }
 
-/* GLOW */
+/* GREEN GLOW */
 body::before,
 body::after{
   content:"";
@@ -61,6 +66,7 @@ nav{
   align-items:center;
 }
 
+/* NAV LOGO */
 .logo{
   display:flex;
   align-items:center;
@@ -76,6 +82,32 @@ nav{
 .logo span{
   font-weight:600;
   color:#1b5e20;
+}
+
+/* NAV LINKS */
+nav .links{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#333;
+  font-weight:500;
+  font-size:15px;
+}
+
+nav a:hover{
+  color:#00c853;
+}
+
+.menu-btn{
+  background:#00c853;
+  color:#fff !important;
+  padding:10px 18px;
+  border-radius:30px;
+  font-weight:600;
 }
 
 /* HERO */
@@ -133,20 +165,78 @@ nav{
   text-decoration:none;
 }
 
-/* CAROUSEL */
-.carousel-section{
-  max-width:1100px;
-  margin:-60px auto 0;
-  padding:0 20px;
-  position:relative;
-  z-index:3;
+/* FLOAT ORDER BUTTON */
+.order-btn{
+  position:fixed;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  background:#00c853;
+  color:#fff;
+  padding:14px 16px;
+  border-radius:50px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:600;
+  text-decoration:none;
+  z-index:9999;
+  box-shadow:0 10px 25px rgba(0,200,83,0.4);
+  animation:vibrate 2s infinite;
 }
 
-.carousel-title{
-  font-size:22px;
-  font-weight:600;
+@keyframes vibrate{
+  0%{transform:translateY(-50%) translateX(0);}
+  25%{transform:translateY(-50%) translateX(-2px);}
+  50%{transform:translateY(-50%) translateX(2px);}
+  75%{transform:translateY(-50%) translateX(-2px);}
+  100%{transform:translateY(-50%) translateX(0);}
+}
+
+/* LEFT BIG STATIC LOGO */
+.floating-logo-left{
+  position:fixed;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:9999;
+}
+
+.floating-logo-left img{
+  width:240px;
+  height:auto;
+  object-fit:contain;
+
+  background:rgba(255,255,255,0.85);
+  border:1px solid rgba(0,200,83,0.25);
+  border-radius:18px;
+
+  padding:10px;
+  box-shadow:0 10px 25px rgba(0,200,83,0.25);
+}
+
+/* CHEF SECTION */
+.chef-wrapper{
+  max-width:1100px;
+  margin:60px auto;
+  padding:0 20px;
+}
+
+.section-title{
+  font-size:28px;
+  font-weight:700;
   color:#1b5e20;
-  margin-bottom:15px;
+  margin-bottom:20px;
+}
+
+.subsection{
+  margin-bottom:40px;
+}
+
+.subsection h3{
+  font-size:20px;
+  margin-bottom:10px;
+  color:#2e7d32;
 }
 
 .carousel{
@@ -158,17 +248,17 @@ nav{
 }
 
 .item{
-  min-width:280px;
-  scroll-snap-align:center;
-  background:rgba(255,255,255,.85);
-  border-radius:16px;
+  min-width:260px;
+  background:#fff;
+  border-radius:14px;
   overflow:hidden;
   border:1px solid #eaeaea;
+  scroll-snap-align:center;
 }
 
 .item img{
   width:100%;
-  height:180px;
+  height:170px;
   object-fit:cover;
 }
 
@@ -176,49 +266,13 @@ nav{
   padding:10px;
 }
 
-/* SECTIONS */
+/* INFO */
 section{
   max-width:1100px;
   margin:auto;
   padding:80px 20px;
 }
 
-h2{
-  font-size:30px;
-  color:#1b5e20;
-  margin-bottom:20px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-}
-
-.card{
-  background:rgba(255,255,255,.85);
-  border:1px solid #eaeaea;
-  border-radius:14px;
-  overflow:hidden;
-}
-
-.card img{
-  width:100%;
-  height:140px;
-  object-fit:cover;
-}
-
-.card-content{
-  padding:10px;
-}
-
-.price{
-  color:#00c853;
-  font-weight:600;
-  margin-top:5px;
-}
-
-/* INFO */
 .info-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -240,61 +294,56 @@ iframe{
   margin-top:20px;
 }
 
-/* FOOTER */
-footer{
+/* COPYRIGHT */
+.copyright{
   text-align:center;
-  padding:30px;
+  margin-top:15px;
+  padding-bottom:25px;
   font-size:13px;
-  color:#666;
+  color:#777;
 }
 
-footer a{
-  margin:0 10px;
+/* MOBILE */
+@media (max-width:768px){
+  .hero h1{font-size:40px;}
+  .floating-logo-left img{width:90px;}
+}
+
+/* INSTAGRAM */
+.instagram-btn{
+  display:flex;
+  align-items:center;
+  gap:6px;
+
+  padding:8px 14px;
+  border-radius:20px;
+  border:1px solid #00c853;
+
   color:#00c853;
+  font-weight:600;
   text-decoration:none;
+  transition:0.2s;
 }
 
-/* ---------------- MOBILE ---------------- */
-@media (max-width: 768px){
-
-  .hero h1{
-    font-size:40px;
-  }
-
-  .hero p{
-    font-size:14px;
-  }
-
-  nav{
-    flex-direction:row;
-    padding:12px 15px;
-  }
-
-  nav a{
-    font-size:12px;
-    margin-left:10px;
-  }
-
-  .carousel{
-    gap:10px;
-  }
-
-  .item{
-    min-width:240px;
-  }
-
-  section{
-    padding:60px 15px;
-  }
-
-  h2{
-    font-size:24px;
-  }
+.instagram-btn:hover{
+  background:#00c853;
+  color:#fff;
 }
+
+.instagram-btn:hover svg path,
+.instagram-btn:hover svg circle{
+  fill:#fff;
+}
+
 </style>
 </head>
 
 <body>
+
+<!-- LEFT BIG LOGO -->
+<div class="floating-logo-left">
+  <img src="images/logo.jpeg" alt="logo">
+</div>
 
 <header>
   <nav>
@@ -303,10 +352,18 @@ footer a{
       <span>CUNS KITCHEN</span>
     </div>
 
-    <div>
-      <a href="#wok">Wok</a>
-      <a href="#bubble">Bubble Tea</a>
-      <a href="#location">Info</a>
+    <div class="links">
+      <a href="#chef">Chef</a>
+      <a href="#location">Kontakt</a>
+      <a class="menu-btn" href="menu.pdf" target="_blank">Menu</a>
+	  <a class="instagram-btn" href="https://instagram.com/YOURUSERNAME" target="_blank" aria-label="Instagram">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+    <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10z" fill="#00c853"/>
+    <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z" fill="#00c853"/>
+    <circle cx="17.5" cy="6.5" r="1.2" fill="#00c853"/>
+  </svg>
+  <span style="margin-left:6px;">Instagram</span>
+</a>
     </div>
   </nav>
 </header>
@@ -314,115 +371,99 @@ footer a{
 <!-- HERO -->
 <div class="hero">
   <video class="hero-video" autoplay muted loop playsinline>
-    <source src="videos/food.mp4" type="video/mp4">
+    <source src="videos/food.mp4">
   </video>
 
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
     <h1>Cuns Kitchen</h1>
-    <p>Wok • Bubble Tea • Street Food</p>
-    <a class="btn" href="menu.pdf" target="_blank">Explore Menu</a>
+    <p>Bubble Tea • Sushi • Asian Food</p>
+    <a class="btn" href="menu.pdf">Explore Full Menu</a>
   </div>
 </div>
 
-<!-- CAROUSEL -->
-<div class="carousel-section">
-  <div class="carousel-title">Chef’s Empfehlung / Signature</div>
+<!-- FLOAT ORDER BUTTON -->
+<a class="order-btn" href="tel:+4934768002228">
+  📱 Bestellen
+</a>
 
-  <div class="carousel">
+<!-- CHEF -->
+<div class="chef-wrapper" id="chef">
 
-    <div class="item">
-      <img src="images/img1.jpeg">
-      <div class="item-name">Signature Beef Wok</div>
+  <div class="section-title">Chef's Empfehlung</div>
+
+  <div class="subsection">
+    <h3>Sushi</h3>
+    <div class="carousel">
+      <div class="item"><img src="images/Sushi_Lachs.jpeg"><div class="item-name">S9. Sashimi Lachs</div></div>
+      <div class="item"><img src="images/Sushi_Maki.jpeg"><div class="item-name">S7. Sushi Maki Sake</div></div>
+      <div class="item"><img src="images/Sushi_Mixed.jpeg"><div class="item-name">S2. Sushi Mixed Set</div></div>
     </div>
-
-    <div class="item">
-      <img src="images/img2.jpeg">
-      <div class="item-name">Spicy Chicken</div>
-    </div>
-
-    <div class="item">
-      <img src="images/img3.jpeg">
-      <div class="item-name">Teriyaki Bowl</div>
-    </div>
-
-    <div class="item">
-      <img src="images/img4.jpeg">
-      <div class="item-name">Crispy Chicken</div>
-    </div>
-
-    <div class="item">
-      <img src="images/img5.jpeg">
-      <div class="item-name">Brown Sugar Tea</div>
-    </div>
-
   </div>
+
+  <div class="subsection">
+    <h3>Wok</h3>
+    <div class="carousel">
+      <div class="item"><img src="images/Bowl_Chicken.jpeg"><div class="item-name">64. Bowl Hühnerbrust</div></div>
+      <div class="item"><img src="images/Ente_Nudeln.jpg"><div class="item-name">Gebratene Nudeln mit knusproger Ente</div></div>
+      <div class="item"><img src="images/Gebratener_Garnelen_Reis.jpg"><div class="item-name">Gebratener_Garnelen_Reis</div></div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3>Bubble Tea</h3>
+    <div class="carousel">
+      <div class="item"><img src="images/Matcha.jpg"><div class="item-name">Milk Tea Matcha</div></div>
+      <div class="item"><img src="images/Brown_Sugar.jpg"><div class="item-name">Brown Sugar</div></div>
+      <div class="item"><img src="images/Taro_Milk_Tea.jpg"><div class="item-name">Taro Milk Tea</div></div>
+    </div>
+  </div>
+
 </div>
-
-<!-- WOK -->
-<section id="wok">
-  <h2>Wok</h2>
-  <div class="grid">
-
-    <div class="card"><img src="images/w1.jpg"><div class="card-content">Beef Wok<div class="price">€8.90</div></div></div>
-    <div class="card"><img src="images/w2.jpg"><div class="card-content">Chicken Wok<div class="price">€7.90</div></div></div>
-    <div class="card"><img src="images/w3.jpg"><div class="card-content">Veggie Wok<div class="price">€6.90</div></div></div>
-
-  </div>
-</section>
-
-<!-- BUBBLE TEA -->
-<section id="bubble">
-  <h2>Bubble Tea</h2>
-  <div class="grid">
-
-    <div class="card"><img src="images/b1.jpg"><div class="card-content">Classic Milk Tea<div class="price">€4.50</div></div></div>
-    <div class="card"><img src="images/b2.jpg"><div class="card-content">Brown Sugar<div class="price">€4.90</div></div></div>
-    <div class="card"><img src="images/b3.jpg"><div class="card-content">Taro Milk Tea<div class="price">€4.80</div></div></div>
-
-  </div>
-</section>
 
 <!-- INFO -->
 <section id="location">
-  <h2>Info</h2>
 
   <div class="info-grid">
 
     <div class="info-box">
-      <b>📍 Location</b><br>
-      Markt 41<br>06333 Hettstedt<br>Germany
+      <b>📍 Adresse</b><br>
+      Markt 41<br>Hettstedt
     </div>
 
     <div class="info-box">
-      <b>⏰ Öffnenzeit</b><br>
-      Mo–Fr: 11:00–21:00<br>
-      Sam: 12:00–22:00<br>
-      Son: Geschlossen
+      <b>⏰ Öffnungszeiten</b><br>
+      Mo–Sa: 11:00–20:00
+	  So & Feiertag: Gechlossen
     </div>
 
     <div class="info-box">
-      <b>📞 Contact</b><br>
-      +49 XXX XXXXX<br>
-      hello@cuns-kitchen.de
+      <b>📞 Kontakt</b><br>
+      +49 3476 8002228
     </div>
 
     <div class="info-box">
-      <b>🚚 Lieferungszeit</b><br>
-      25–45 Minuten
+      <b>🚚 Lieferzeiten</b><br>
+      Mo–Sa:<br>
+      11:00–15:00 & 17:00–20:00<br>
+      Bestellannahme ab 10:00
     </div>
 
   </div>
 
-  <iframe src="https://www.google.com/maps?q=Markt%2041%20Hettstedt%20Germany&output=embed"></iframe>
-</section>
+  <iframe src="https://www.google.com/maps?q=Markt%2041%20Hettstedt&output=embed"></iframe>
 
-<footer>
-  <a href="impressum.html">Impressum</a>
-  <a href="datenschutz.html">Datenschutz</a>
-  <p>© 2026 Cuns Kitchen</p>
-</footer>
+  <div style="text-align:center;margin-top:25px;">
+    <a href="impressum.html" style="margin:0 15px;color:#00c853;text-decoration:none;">Impressum</a>
+    <a href="datenschutz.html" style="margin:0 15px;color:#00c853;text-decoration:none;">Datenschutz</a>
+  </div>
+
+  <div class="copyright">
+    © 2026 Cuns Kitchen. All rights reserved.
+  </div>
+
+</section>
 
 </body>
 </html>
