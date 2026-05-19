@@ -203,7 +203,7 @@ nav a:hover{
 }
 
 .floating-logo-left img{
-  width:240px;
+  width:180px;
   height:auto;
   object-fit:contain;
 
@@ -358,6 +358,18 @@ iframe{
   border:1px solid #eaeaea;
   line-height:1.6;
 }
+
+/* MOBILE */
+@media (max-width:768px){
+  .buffet-box{
+    grid-template-columns:1fr;
+  }
+
+  .buffet-box img{
+    height:200px;
+  }
+}
+
 </style>
 </head>
 
@@ -394,7 +406,7 @@ iframe{
 <!-- HERO -->
 <div class="hero">
   <video class="hero-video" autoplay muted loop playsinline>
-    <source src="videos/adv.mp4">
+    <source src="videos/food.mp4">
   </video>
 
   <div class="hero-overlay"></div>
@@ -419,18 +431,22 @@ iframe{
   <div class="subsection">
     <h3>Sushi</h3>
     <div class="carousel">
-      <div class="item"><img src="images/Sushi_Lachs.jpeg"><div class="item-name">S9. Sashimi Lachs</div></div>
-      <div class="item"><img src="images/Sushi_Maki.jpeg"><div class="item-name">S7. Sushi Maki Sake</div></div>
-      <div class="item"><img src="images/Sushi_Mixed.jpeg"><div class="item-name">S2. Sushi Mixed Set</div></div>
+      <div class="item"><img src="images/S0.jpg"><div class="item-name">S0. Mixed Set: Maki (Lachs/Avocado/Gurke)</div></div>
+      <div class="item"><img src="images/S1.jpeg"><div class="item-name">S1. Mixed Set: Maki (Avocado/Gurke) & Inside Out (Avocado)</div></div>
+      <div class="item"><img src="images/S5.jpg"><div class="item-name">S5. Mixed Set: Mini Tempura (Avocado/Chicken/Sake)</div></div>
+	  <div class="item"><img src="images/S7.jpg"><div class="item-name">S7. Mixed Set: Maki (Sake/Kappa) & Inside Out (Sake Avocado) & Big Tempura (Chicken)</div></div>
+	  <div class="item"><img src="images/S8.jpg"><div class="item-name">S8. Mixed Set: Nigiri (Ebi/Sake) & Maki (Kappa/Sake) & Inside Out (Sake Avocado) & Big Tempura (Ebi)</div></div>
+	  <div class="item"><img src="images/S9.jpeg"><div class="item-name">S9. Mixed Set: Sashimi (Lachs) & Nigiri (Avocado/Sake) & Maki (Surimi/Sake) & Inside Out (Sake Avocado) & Futo Maki (Chicken Gurke) & Big Tempura (Sake Avocado Gurke)</div></div>
     </div>
   </div>
 
   <div class="subsection">
-    <h3>Wok</h3>
+    <h3>Wok & Bowl</h3>
     <div class="carousel">
-      <div class="item"><img src="images/Bowl_Chicken.jpeg"><div class="item-name">64. Bowl Hühnerbrust</div></div>
-      <div class="item"><img src="images/Ente_Nudeln.jpg"><div class="item-name">Gebratene Nudeln mit knusproger Ente</div></div>
-      <div class="item"><img src="images/Gebratener_Garnelen_Reis.jpg"><div class="item-name">Gebratener_Garnelen_Reis</div></div>
+      <div class="item"><img src="images/Bowl_64.jpg"><div class="item-name">64. Bowl: knuspriger Hühnerbrust</div></div>
+	  <div class="item"><img src="images/Bowl_63.jpeg"><div class="item-name">63. Bowl: Chicken Teriyaki Spießen</div></div>
+      <div class="item"><img src="images/30C.jpeg"><div class="item-name">30C. Gebratene Nudeln mit knuspriger Hühnerbrust</div></div>
+      <div class="item"><img src="images/30D.jpeg"><div class="item-name">30D. Gebratener Nudeln mit knuspriger Ente</div></div>
     </div>
   </div>
 
@@ -472,7 +488,7 @@ iframe{
     </div>
   </div>
 </section>
-	
+
 <!-- INFO -->
 <section id="location">
 
