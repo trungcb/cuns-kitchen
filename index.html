@@ -343,7 +343,7 @@ iframe{
   align-items:center;
 }
 
-.buffet-box img{
+.buffet-box video{
   width:100%;
   height:260px;
   object-fit:cover;
@@ -365,7 +365,7 @@ iframe{
     grid-template-columns:1fr;
   }
 
-  .buffet-box img{
+  .buffet-box video{
     height:200px;
   }
 }
@@ -466,7 +466,10 @@ iframe{
   <h2>Feier & Buffet Service</h2>
 
   <div class="buffet-box">
-    <img src="images/feier.png" alt="Buffet Feier">
+    <video controls autoplay muted loop playsinline>
+      <source src="videos/buffet_video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
     <div class="buffet-text">
       <p>
